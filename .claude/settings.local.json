@@ -8,7 +8,12 @@
       "Read(//Users/randy/Documents/source/**)",
       "Bash(cat:*)",
       "Bash(uv run:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(chmod:*)",
+      "Bash(tree:*)",
+      "Bash(pip install:*)",
+      "Bash(python3:*)",
+      "Bash(open:*)"
     ],
     "deny": [],
     "ask": []

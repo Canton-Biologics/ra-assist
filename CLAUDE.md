@@ -22,8 +22,19 @@ ra-agent-skills/
 │           └── scripts/
 │               ├── extract_quality_standards.py    # 从 Word 文档提取表格
 │               └── fill_quality_standards.py       # 填充 Word 文档表格
-└── doc/
-    └── example/                     # 示例 Word 文档
+├── doc/
+│   └── example/                     # 示例 Word 文档
+├── tests/                           # 测试套件
+│   ├── test_extract_quality_standards.py  # 提取功能测试
+│   ├── test_fill_quality_standards.py     # 填充功能测试
+│   ├── conftest.py                  # Pytest 配置
+│   ├── requirements.txt             # 测试依赖
+│   ├── README.md                    # 测试文档
+│   ├── run_tests.sh                 # 测试运行脚本
+│   └── verify_tests.py              # 环境验证脚本
+├── pytest.ini                       # Pytest 配置文件
+├── .coveragerc                      # 覆盖率配置
+└── .github/workflows/test.yml       # CI/CD 配置
 ```
 
 ## 依赖项
@@ -120,3 +131,48 @@ logging.basicConfig(level=logging.DEBUG)
 - 处理中文药品质量文档
 
 技能名称为 `ra-doc-assit`，可通过 Claude Code 的技能系统调用。
+
+## 测试
+
+项目包含完整的单元测试套件，位于 `tests/` 目录。
+
+### 快速开始
+
+```bash
+# 安装测试依赖
+pip install -r tests/requirements.txt
+
+# 验证测试环境
+python tests/verify_tests.py
+
+# 运行所有测试
+pytest
+
+# 或使用测试脚本
+./tests/run_tests.sh
+
+# 生成覆盖率报告
+./tests/run_tests.sh coverage
+```
+
+### 测试文档
+
+详细的测试文档和使用指南请参阅：
+- [tests/README.md](tests/README.md) - 测试套件指南
+- [tests/TEST_SUMMARY.md](tests/TEST_SUMMARY.md) - 测试总结
+- [tests/SAMPLE_TEST_USAGE.md](tests/SAMPLE_TEST_USAGE.md) - 使用示例
+
+### 测试覆盖
+
+- **提取功能测试** (test_extract_quality_standards.py)
+  - 文本提取（含上标/下标格式）
+  - Markdown 表格格式化
+  - Word 文档表格提取
+  - 错误处理
+
+- **填充功能测试** (test_fill_quality_standards.py)
+  - Markdown 表格解析
+  - Word 格式还原
+  - 表格操作（清除、插入、合并）
+  - 文档填充（多种方式）
+  - 自动合并单元格
