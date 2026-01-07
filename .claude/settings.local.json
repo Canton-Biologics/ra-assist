@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(uv sync:*)",
+      "Bash(pytest:*)",
+      "Bash(python:*)",
+      "Read(//Users/randy/Documents/source/**)",
+      "Bash(cat:*)",
+      "Bash(uv run:*)",
+      "Bash(find:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
