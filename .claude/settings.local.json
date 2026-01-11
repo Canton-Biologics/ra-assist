@@ -13,7 +13,8 @@
       "Bash(tree:*)",
       "Bash(pip install:*)",
       "Bash(python3:*)",
-      "Bash(open:*)"
+      "Bash(open:*)",
+      "Skill(ra-doc-assit)"
     ],
     "deny": [],
     "ask": []
