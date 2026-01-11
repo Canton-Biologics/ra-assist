@@ -14,7 +14,12 @@
       "Bash(pip install:*)",
       "Bash(python3:*)",
       "Bash(open:*)",
-      "Skill(ra-doc-assit)"
+      "Skill(ra-doc-assit)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git fetch:*)",
+      "Bash(gh pr create:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []

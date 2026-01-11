@@ -1,0 +1,32 @@
+# Test outputs
+*.pyc
+__pycache__/
+.pytest_cache/
+*.so
+
+# Test reports
+htmlcov/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Temporary test files
+temp_*.docx
+test_*.docx
+test_*.md
+
+# Python
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
