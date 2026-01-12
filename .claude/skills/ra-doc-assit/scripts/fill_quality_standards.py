@@ -202,7 +202,12 @@ def insert_table_rows(table, num_rows: int):
 
 def find_quality_standards_table(doc: Document) -> Optional[int]:
     """
-    在文档中查找质量标准表格
+    在文档中查找质量标准表格（增强版）
+
+    检测策略：
+    1. 必须是4列表格
+    2. 标题行至少匹配3个关键词
+    3. 优先选择包含完整4个核心列名的表格
 
     Args:
         doc: Word 文档对象
@@ -212,27 +217,54 @@ def find_quality_standards_table(doc: Document) -> Optional[int]:
     """
     logger.debug(f"在 {len(doc.tables)} 个表格中搜索质量标准表格")
 
+    # 核心列名（完整匹配）
+    core_columns = ['类型', '检验项目', '检验方法', '质量标准']
+    quality_keywords = ['检验项目', '检验方法', '质量标准', '类型', '项目', '方法', '标准']
+
+    best_match_idx = None
+    best_score = 0
+
     for table_idx, table in enumerate(doc.tables):
         try:
-            if len(table.rows) > 0:
-                # 检查标题行中是否包含质量标准关键词
-                header_row = table.rows[0]
-                header_text = ' '.join(cell.text for cell in header_row.cells).lower()
+            # 验证1：必须有标题行
+            if len(table.rows) == 0:
+                continue
 
-                quality_keywords = ['检验项目', '检验方法', '质量标准', '类型', '项目', '方法', '标准']
-                keyword_count = sum(1 for keyword in quality_keywords if keyword in header_text)
+            # 验证2：必须是4列（关键！）
+            if len(table.columns) != 4:
+                logger.debug(f"表格 {table_idx}: 列数为 {len(table.columns)}，跳过（需要4列）")
+                continue
 
-                logger.debug(f"表格 {table_idx}: 找到标题关键词: {keyword_count}")
+            header_row = table.rows[0]
+            header_text = ' '.join(cell.text for cell in header_row.cells).lower()
 
-                if keyword_count >= 2:  # 至少匹配 2 个关键词
-                    logger.info(f"在索引 {table_idx} 处找到质量标准表格")
-                    return table_idx
+            # 验证3：关键词匹配（至少3个）
+            keyword_count = sum(1 for keyword in quality_keywords if keyword in header_text)
+            if keyword_count < 3:
+                logger.debug(f"表格 {table_idx}: 仅匹配 {keyword_count} 个关键词，跳过（需要≥3）")
+                continue
+
+            # 验证4：计算完整列名匹配数（加分项）
+            full_column_matches = sum(1 for col in core_columns if col in header_text)
+
+            # 综合评分
+            score = keyword_count + full_column_matches * 2  # 完整列名匹配权重更高
+
+            logger.debug(f"表格 {table_idx}: 关键词={keyword_count}, 完整列名={full_column_matches}, 评分={score}")
+
+            if score > best_score:
+                best_score = score
+                best_match_idx = table_idx
 
         except Exception as e:
             logger.warning(f"检查表格 {table_idx} 时出错: {str(e)}")
             continue
 
-    logger.warning("未找到质量标准表格")
+    if best_match_idx is not None:
+        logger.info(f"在索引 {best_match_idx} 处找到质量标准表格（评分: {best_score}）")
+        return best_match_idx
+
+    logger.warning("未找到符合条件的质量标准表格")
     return None
 
 def merge_cells_in_column(table, col_index: int, start_row: int, end_row: int):
