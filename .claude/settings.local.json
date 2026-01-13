@@ -6,6 +6,7 @@
       "Bash(pytest:*)",
       "Bash(python:*)",
       "Read(//Users/randy/Documents/source/**)",
+      "Write(//Users/randy/Documents/source/**)",
       "Bash(cat:*)",
       "Bash(uv run:*)",
       "Bash(find:*)",

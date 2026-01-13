@@ -1,3 +1,4 @@
 doc/*
 .claude/skills/ra-doc-assit/scripts/__pycache__
 .claude/settings.local.json
+.DS_Store
