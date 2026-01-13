@@ -42,31 +42,6 @@ ra-agent-skills/
 └── .github/workflows/test.yml       # CI/CD 配置
 ```
 
-## 依赖项
-
-Python 脚本需要 `python-docx` 库来操作 Word 文档。使用以下命令安装：
-
-```bash
-pip install python-docx
-```
-
-## Windows 环境安装
-
-🪟 Windows 用户请参考详细的安装指南：[**README-WINDOWS.md**](README-WINDOWS.md)
-
-**快速开始**（3 步）：
-
-```powershell
-# 1. 运行自动安装脚本
-右键点击 setup.bat -> "以管理员身份运行"
-
-# 2. 配置 API 密钥
-setx ANTHROPIC_API_KEY "sk-ant-你的API密钥"
-
-# 3. 重启终端并使用
-claude
-```
-
 **详细指南包含**：
 - ✅ 完整的安装步骤（自动/手动两种方式）
 - ✅ Claude Code 和 API 配置详解
