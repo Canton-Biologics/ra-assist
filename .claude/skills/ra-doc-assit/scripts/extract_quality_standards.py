@@ -196,30 +196,63 @@ def extract_quality_standards_table(docx_path):
         logger.error(f"Full traceback: {traceback.format_exc()}")
         raise
 
-def format_as_markdown_table(table_data, target_columns=['类型', '检验项目', '检验方法', '质量标准']):
+def format_as_markdown_table(table_data, target_columns=None):
     """
     Convert table data to markdown format
+
+    Args:
+        table_data: Extracted table data (list of lists)
+        target_columns: Optional list of column names. If None, uses original headers.
+                       If provided, will try to map original columns to these targets.
+
+    Returns:
+        Markdown formatted table string
     """
     if not table_data:
         return "No table data found"
 
-    # Try to map columns to target format
-    header_row = table_data[0] if table_data else []
-    print(f"\nOriginal headers: {header_row}")
+    # Get original headers from the table
+    original_headers = table_data[0] if table_data else []
+    logger.info(f"Original headers: {original_headers}")
+
+    # Determine which headers to use
+    if target_columns is None:
+        # Use original headers as-is
+        output_headers = original_headers
+    else:
+        # Try to map original columns to target columns
+        output_headers = target_columns
 
     # Create markdown table
     markdown_lines = []
 
     # Header
-    markdown_lines.append(f"| {' | '.join(target_columns)} |")
-    markdown_lines.append(f"| {' | '.join(['---'] * len(target_columns))} |")
+    markdown_lines.append(f"| {' | '.join(output_headers)} |")
+    markdown_lines.append(f"| {' | '.join(['---'] * len(output_headers))} |")
 
     # Data rows
     for row in table_data[1:]:  # Skip header row
-        # Pad row to match target columns length
-        padded_row = row + [''] * (len(target_columns) - len(row))
-        # Truncate if too long
-        padded_row = padded_row[:len(target_columns)]
+        # If we're reordering columns, create a mapping
+        if target_columns is not None and original_headers != target_columns:
+            # Map original row to target column order
+            mapped_row = []
+            for target_col in target_columns:
+                # Find the index of this target column in original headers
+                try:
+                    orig_idx = original_headers.index(target_col)
+                    if orig_idx < len(row):
+                        mapped_row.append(row[orig_idx])
+                    else:
+                        mapped_row.append('')
+                except ValueError:
+                    # Target column not found in original headers
+                    mapped_row.append('')
+            padded_row = mapped_row
+        else:
+            # Use original row order
+            # Pad or truncate to match header length
+            padded_row = row + [''] * (len(output_headers) - len(row))
+            padded_row = padded_row[:len(output_headers)]
 
         markdown_lines.append(f"| {' | '.join(padded_row)} |")
 
