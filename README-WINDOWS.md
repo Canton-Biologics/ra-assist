@@ -104,7 +104,38 @@ Claude Code 是一个命令行工具，用于与 Claude 模型交互。
 
 ---
 
-### 配置 API 密钥
+### 配置 API 密钥 (智谱GLM)
+
+参考：使用智谱 GLM API：https://docs.bigmodel.cn/cn/coding-plan/tool/claude：
+
+```json
+# 编辑或新增 `settings.json` 文件
+# MacOS & Linux 为 `~/.claude/settings.json`
+# Windows 为`用户目录/.claude/settings.json`
+# 新增或修改里面的 env 字段
+# 注意替换里面的 `your_zhipu_api_key` 为您上一步获取到的 API Key
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "your_zhipu_api_key",
+    "ANTHROPIC_BASE_URL": "https://open.bigmodel.cn/api/anthropic",
+    "API_TIMEOUT_MS": "3000000",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1
+  }
+}
+# 再编辑或新增 `.claude.json` 文件
+# MacOS & Linux 为 `~/.claude.json`
+# Windows 为`用户目录/.claude.json`
+# 新增 `hasCompletedOnboarding` 参数
+{
+  "hasCompletedOnboarding": true
+}
+```
+
+### 测试 API 连接
+
+```powershell
+claude ask "Hello, can you hear me?"
+```
 
 ## 安装项目
 ### 克隆项目
@@ -138,56 +169,11 @@ pip install python-docx
 python -c "import docx; print('✅ python-docx 安装成功')"
 ```
 
-### 步骤 4: 安装 Claude Code
-
-**方式 A: 使用 npm**（需要先安装 Node.js）
-```powershell
-npm install -g @anthropic-ai/claude-code
-```
-
-**方式 B: 使用 pip**
-```powershell
-pip install claude-code
-```
-
-**验证安装**：
-```powershell
-claude --version
-```
-
----
-
-### 配置 智谱模型GLM API
-
-如果使用智谱 GLM API：https://docs.bigmodel.cn/cn/coding-plan/tool/claude：
-
-```json
-# 编辑或新增 `settings.json` 文件
-# MacOS & Linux 为 `~/.claude/settings.json`
-# Windows 为`用户目录/.claude/settings.json`
-# 新增或修改里面的 env 字段
-# 注意替换里面的 `your_zhipu_api_key` 为您上一步获取到的 API Key
-{
-  "env": {
-    "ANTHROPIC_AUTH_TOKEN": "your_zhipu_api_key",
-    "ANTHROPIC_BASE_URL": "https://open.bigmodel.cn/api/anthropic",
-    "API_TIMEOUT_MS": "3000000",
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1
-  }
-}
-# 再编辑或新增 `.claude.json` 文件
-# MacOS & Linux 为 `~/.claude.json`
-# Windows 为`用户目录/.claude.json`
-# 新增 `hasCompletedOnboarding` 参数
-{
-  "hasCompletedOnboarding": true
-}
-```
-
-### 测试 API 连接
+### 启动claude code
 
 ```powershell
-claude ask "Hello, can you hear me?"
+cd ra-assist
+claude
 ```
 
 ---
