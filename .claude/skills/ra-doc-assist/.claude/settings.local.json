@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python integrate_sop_method.py -t \"c:/Users/wenjian.bao/.claude/skills/ra-doc-assist/input/32s42-分析方法-模板文件.docx\" --extract-only -o output/extracted.json)",
+      "Bash(python integrate_sop_method.py -t \"../input/32s42-分析方法-模板文件.docx\" -s \"../input/SOP/3-CB0012-SOP-TI002-01 CB0012还原纯度\\(rCE-SDS\\)检验标准操作规程.docx\" --section \"还原纯度（CE-SDS法）\" --stop [\"非还原纯度（nrCE-SDS法）\"] --extract-only -o \"../output/extracted.json\")",
+      "Bash(python refine_extracted.py ../output/extracted.json ../output/refined.json)",
+      "Bash(python integrate_sop_method.py -t \"../input/32s42-分析方法-模板文件.docx\" --from-json \"../output/refined.json\" --method-order \"../input/输出文件分析方法排序.docx\")",
+      "Bash(python integrate_sop_method.py -t \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\32s42-分析方法-模板文件.docx\" -s \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\SOP\\\\3-CB0012-SOP-TI002-01 CB0012还原纯度（rCE-SDS）检验标准操作规程.docx\" --extract-only --method-order \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\输出文件分析方法排序.docx\" -o \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\output\\\\extracted.json\")",
+      "Bash(python integrate_sop_method.py -t \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\32s42-分析方法-模板文件.docx\" -s \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\SOP\\\\3-CB0012-SOP-TI002-01 CB0012还原纯度（rCE-SDS）检验标准操作规程.docx\" --infer-section --extract-only --method-order \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\输出文件分析方法排序.docx\" -o \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\output\\\\extracted.json\")",
+      "Bash(python integrate_sop_method.py -t \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\32s42-分析方法-模板文件.docx\" -s \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\SOP\\\\3-CB0012-SOP-TI002-01 CB0012还原纯度（rCE-SDS）检验标准操作规程.docx\" --section \"还原纯度（CE-SDS法）\" --extract-only --method-order \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\输出文件分析方法排序.docx\" -o \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\output\\\\extracted.json\")",
+      "Bash(python refine_extracted.py \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\output\\\\extracted.json\" \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\output\\\\refined.json\")",
+      "Bash(python integrate_sop_method.py -t \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\32s42-分析方法-模板文件.docx\" --from-json \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\output\\\\refined.json\" --method-order \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\输出文件分析方法排序.docx\")",
+      "Bash(python -c ':*)",
+      "Bash(ls -lh *refined_20260413*)",
+      "Bash(python integrate_sop_method.py --help)",
+      "Bash(python integrate_sop_method.py -t \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\32s42-分析方法-模板文件.docx\" --merge-sops \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\SOP\"/*.docx --extract-only -o \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\output\\\\extracted.json\")",
+      "Bash(python integrate_sop_method.py -t \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\32s42-分析方法-模板文件.docx\" --from-json \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\output\\\\refined.json\" --method-order \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\input\\\\输出文件分析方法排序.docx\" -o \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\output\\\\\")",
+      "Bash(python integrate_sop_method.py -t \"../input/32s42-分析方法-模板文件.docx\" --from-json \"../output/refined.json\" --method-order \"../input/输出文件分析方法排序.docx\" -o \"../output/\")",
+      "Bash(ls -lh \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\output\\\\32s42-分析方法-模板文件_refined_\"*.docx)",
+      "Bash(dir \"c:\\\\Users\\\\wenjian.bao\\\\.claude\\\\skills\\\\ra-doc-assist\\\\output\\\\32s42-分析方法-模板文件_refined_*.docx\")",
+      "Bash(ls -lh *refined*.docx)"
+    ]
+  }
+}

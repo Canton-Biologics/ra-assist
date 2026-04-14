@@ -1,0 +1,67 @@
+[
+  {
+    "sop": "SOP/3-CB0012-SOP-TI010-01 CB0012肽图（RP-UPLC）检验标准操作规程.docx",
+    "section": "肽图",
+    "stop": ["蛋白质含量"]
+  },
+  {
+    "sop": "SOP/3-CB0012-SOP-TI003-01 CB0012蛋白含量（UV）检验标准操作规程.docx",
+    "section": "蛋白质含量",
+    "stop": ["纯度（SEC-HPLC）"]
+  },
+  {
+    "sop": "SOP/3-CB0012-SOP-TI004-01 CB0012纯度（SEC-HPLC）检验标准操作规程.docx",
+    "section": "纯度（SEC-HPLC）",
+    "stop": ["还原纯度（CE-SDS法）"]
+  },
+  {
+    "sop": "SOP/3-CB0012-SOP-TI002-01 CB0012还原纯度（rCE-SDS）检验标准操作规程.docx",
+    "section": "还原纯度（CE-SDS法）",
+    "stop": ["非还原纯度（nrCE-SDS法）"]
+  },
+  {
+    "sop": "SOP/3-CB0012-SOP-TI005-01 CB0012非还原纯度（nrCE-SDS）检验标准操作规程.docx",
+    "section": "非还原纯度（nrCE-SDS法）",
+    "stop": ["电荷异质性"]
+  },
+  {
+    "sop": "SOP/3-CB0012-SOP-TI006-01 CB0012 PEG6000残留量（ELSD-HPLC）检验标准操作规程.docx",
+    "section": "PEG6000残留量",
+    "stop": ["蛋白A残留量"]
+  },
+  {
+    "sop": "SOP/3-CB0012-SOP-TI015-01 CB0012宿主细胞蛋白质残留量检验标准操作规程.docx",
+    "section": "宿主细胞蛋白质残留量",
+    "stop": ["蛋白A残留量"]
+  },
+  {
+    "sop": "SOP/3-CB0012-SOP-TI014-01 CB0012蛋白A残留量检验标准操作规程.docx",
+    "section": "蛋白A残留量",
+    "stop": ["宿主细胞DNA残留量"]
+  },
+  {
+    "sop": "SOP/3-CB0012-SOP-TI013-01 CB0012宿主细胞DNA残留量检验标准操作规程.docx",
+    "section": "宿主细胞DNA残留量",
+    "stop": ["IL-1RAP结合活性"]
+  },
+  {
+    "sop": "SOP/3-CB0012-SOP-TI017-01 CB0012 HLA-MAGEA1结合活性检验标准操作规程.docx",
+    "section": "HLA-MAGEA1结合活性",
+    "stop": ["CD3结合活性"]
+  },
+  {
+    "sop": "SOP/3-CB0012-SOP-TI018-01 CB0012 CD3结合活性检验标准操作规程.docx",
+    "section": "CD3结合活性",
+    "stop": ["细菌内毒素"]
+  },
+  {
+    "sop": "SOP/3-CB0012-SOP-TI009-01 CB0012细菌内毒素检验标准操作规程.docx",
+    "section": "细菌内毒素",
+    "stop": ["微生物限度"]
+  },
+  {
+    "sop": "SOP/3-CB0012-SOP-TI008-01 CB0012微生物限度检验标准操作规程.docx",
+    "section": "微生物限度",
+    "stop": []
+  }
+]

@@ -1,0 +1,13 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Local runtime artifacts
+output/
+*.tmp
+nul
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+~$*.docx
